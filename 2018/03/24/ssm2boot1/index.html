@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ssm," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="tyron blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="根据慕课网项目深入学习SSM和SpringBoot，练手中，将学习笔记做记录，后期会继续更新。慕课网地址：SSM到Spring Boot-从零开发校园商铺平台-慕课网实战，文末会附上免费视频地址！">
+<meta name="keywords" content="ssm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSM到Spring Boot从零开发校园商铺平台---1、环境搭建及测试">
+<meta property="og:url" content="http://tyronblog.com/2018/03/24/ssm2boot1/index.html">
+<meta property="og:site_name" content="tyron blog">
+<meta property="og:description" content="根据慕课网项目深入学习SSM和SpringBoot，练手中，将学习笔记做记录，后期会继续更新。慕课网地址：SSM到Spring Boot-从零开发校园商铺平台-慕课网实战，文末会附上免费视频地址！">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p3ej4y1q6.bkt.clouddn.com/0413%20%280%29.png">
+<meta property="og:image" content="http://p3ej4y1q6.bkt.clouddn.com/0413%20%281%29.jpg">
+<meta property="og:updated_time" content="2018-04-13T00:51:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SSM到Spring Boot从零开发校园商铺平台---1、环境搭建及测试">
+<meta name="twitter:description" content="根据慕课网项目深入学习SSM和SpringBoot，练手中，将学习笔记做记录，后期会继续更新。慕课网地址：SSM到Spring Boot-从零开发校园商铺平台-慕课网实战，文末会附上免费视频地址！">
+<meta name="twitter:image" content="http://p3ej4y1q6.bkt.clouddn.com/0413%20%280%29.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://tyronblog.com/2018/03/24/ssm2boot1/"/>
+
+
+
+
+
+  <title>SSM到Spring Boot从零开发校园商铺平台---1、环境搭建及测试 | tyron blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?90d52ab64b06d8ab5a4ec58d86be4035";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tyron blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">人若无名，专心练剑。<br />剑成之后，自然诸事皆顺。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-我的阅读">
+          <a href="/books/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            我的阅读
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-我的电影">
+          <a href="/movies/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-file-video-o"></i> <br />
+            
+            我的电影
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tyronblog.com/2018/03/24/ssm2boot1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tyron chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tyron blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">SSM到Spring Boot从零开发校园商铺平台---1、环境搭建及测试</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-24T22:35:38+08:00">
+                2018-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-thermometer-full"> 热度</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>根据慕课网项目深入学习SSM和SpringBoot，练手中，将学习笔记做记录，后期会继续更新。<br>慕课网地址：<a href="https://coding.imooc.com/class/144.html" target="_blank" rel="noopener">SSM到Spring Boot-从零开发校园商铺平台-慕课网实战</a>，文末会附上免费视频地址！<br><a id="more"></a></p>
+<p>先上效果图（此文讲述中最后要完成的结果）：<br><img src="http://p3ej4y1q6.bkt.clouddn.com/0413%20%280%29.png" alt="效果图"><br><img src="http://p3ej4y1q6.bkt.clouddn.com/0413%20%281%29.jpg" alt="项目图"></p>
+<h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p>慕课网中关于项目有详细的介绍，就不做过多的说明了。</p>
+<h2 id="项目结构及配置文件说明"><a href="#项目结构及配置文件说明" class="headerlink" title="项目结构及配置文件说明"></a>项目结构及配置文件说明</h2><p>如题，项目初期采用SSM（Spring+SpringMVC+MyBatis）框架，按照项目加载过程逐一讲解配置文件：</p>
+<h3 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a><strong>pom.xml</strong></h3><p>项目使用Maven管理项目相关依赖，配置有Spring、mybatis、数据库、junit等依赖；</p>
+<h3 id="web-xml"><a href="#web-xml" class="headerlink" title="web.xml"></a><strong>web.xml</strong></h3><p>web项目的核心配置文件，主要配置了SSM的前置控制器DispatcherServlet，主要负责流程的控制；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">	&lt;servlet-name&gt;spring-dispatcher&lt;/servlet-name&gt;</span><br><span class="line">	&lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;</span><br><span class="line">	&lt;!-- 配置springMVC需要加载的配置文件 spring-dao.xml,spring-service.xml,spring-web.xml </span><br><span class="line">		Mybatis - &gt; spring -&gt; springmvc --&gt;</span><br><span class="line">	&lt;init-param&gt;</span><br><span class="line">		&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">		&lt;param-value&gt;classpath:spring/spring-*.xml&lt;/param-value&gt;</span><br><span class="line">	&lt;/init-param&gt;</span><br><span class="line">&lt;/servlet&gt;</span><br><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">	&lt;servlet-name&gt;spring-dispatcher&lt;/servlet-name&gt;</span><br><span class="line">	&lt;!-- 默认匹配所有的请求 --&gt;</span><br><span class="line">	&lt;url-pattern&gt;/&lt;/url-pattern&gt;</span><br><span class="line">&lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="spring-web-xml"><a href="#spring-web-xml" class="headerlink" title="spring-web.xml"></a><strong>spring-web.xml</strong></h3><p>主要配置SpringMVC：1）启用注解驱动；2）静态资源处理；3）配置视图解析器；4）扫描web相关的bean；5、后续权限拦截器的配置；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 两个标准配置 --&gt;</span><br><span class="line">&lt;!-- 1、启用注解驱动--&gt;  </span><br><span class="line">&lt;mvc:annotation-driven/&gt;</span><br><span class="line">&lt;!-- 2、 可以正常访问静态文件，springmvc静态资源处理--&gt;</span><br><span class="line">&lt;mvc:default-servlet-handler/&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 3.定义视图解析器 --&gt;</span><br><span class="line">&lt;bean id=&quot;viewResolver&quot;  class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;</span><br><span class="line">	&lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/html/&quot;&gt;&lt;/property&gt;</span><br><span class="line">	&lt;property name=&quot;suffix&quot; value=&quot;.html&quot;&gt;&lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">&lt;!-- 4.扫描web相关的bean --&gt;</span><br><span class="line">&lt;context:component-scan base-package=&quot;com.tyron.o2o.web&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="spring-service-xml"><a href="#spring-service-xml" class="headerlink" title="spring-service.xml"></a><strong>spring-service.xml</strong></h3><p>业务相关配置：1）扫描service相关的bean；2）配置事务管理器；3）配置基于注解的声明式事务；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--1、 扫描service包下所有使用注解的类型 --&gt;</span><br><span class="line">&lt;context:component-scan base-package=&quot;com.tyron.o2o.service&quot; /&gt;</span><br><span class="line">&lt;!-- 2、 配置事务管理器 --&gt;</span><br><span class="line">&lt;bean id=&quot;transactionManager&quot; class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;</span><br><span class="line">	&lt;!-- 注入数据库连接池 --&gt;</span><br><span class="line">	&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 3、配置基于注解的声明式事务 --&gt;</span><br><span class="line">&lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="spring-dao-xml"><a href="#spring-dao-xml" class="headerlink" title="spring-dao.xml"></a><strong>spring-dao.xml</strong></h3><p>配置整合mybatis过程：1）配置数据库相关参数；2）配置数据库连接池；3）配置SqlSessionFactory对象；4）配置扫描Dao接口包，并注入；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 1.配置数据库相关参数properties的属性：$&#123;url&#125; --&gt;</span><br><span class="line">&lt;context:property-placeholder location=&quot;classpath:jdbc.properties&quot;/&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 2.数据库连接池 --&gt;</span><br><span class="line">&lt;bean id=&quot;dataSource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt;</span><br><span class="line">	&lt;!-- 配置连接池属性 --&gt;</span><br><span class="line">	&lt;property name=&quot;driverClass&quot; value=&quot;$&#123;jdbc.driver&#125;&quot; /&gt;</span><br><span class="line">	&lt;property name=&quot;jdbcUrl&quot; value=&quot;$&#123;jdbc.url&#125;&quot; /&gt;</span><br><span class="line">	&lt;property name=&quot;user&quot; value=&quot;$&#123;jdbc.username&#125;&quot; /&gt;</span><br><span class="line">	&lt;property name=&quot;password&quot; value=&quot;$&#123;jdbc.password&#125;&quot; /&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- c3p0连接池的私有属性 --&gt;</span><br><span class="line">	&lt;property name=&quot;maxPoolSize&quot; value=&quot;30&quot; /&gt;</span><br><span class="line">	&lt;property name=&quot;minPoolSize&quot; value=&quot;10&quot; /&gt;</span><br><span class="line">	&lt;!-- 关闭连接后不自动commit --&gt;</span><br><span class="line">	&lt;property name=&quot;autoCommitOnClose&quot; value=&quot;false&quot; /&gt;</span><br><span class="line">	&lt;!-- 获取连接超时时间 --&gt;</span><br><span class="line">	&lt;property name=&quot;checkoutTimeout&quot; value=&quot;10000&quot; /&gt;</span><br><span class="line">	&lt;!-- 当获取连接失败重试次数 --&gt;</span><br><span class="line">	&lt;property name=&quot;acquireRetryAttempts&quot; value=&quot;2&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 3.配置SqlSessionFactory对象 --&gt;</span><br><span class="line">&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;</span><br><span class="line">	&lt;!-- 注入数据库连接池 --&gt;</span><br><span class="line">	&lt;property name=&quot;dataSource&quot; ref=&quot;dataSource&quot; /&gt;</span><br><span class="line">	&lt;!-- 配置MyBaties全局配置文件:mybatis-config.xml --&gt;</span><br><span class="line">	&lt;property name=&quot;configLocation&quot; value=&quot;classpath:mybatis-config.xml&quot; /&gt;</span><br><span class="line">	&lt;!-- 扫描entity包 使用别名 --&gt;</span><br><span class="line">	&lt;property name=&quot;typeAliasesPackage&quot; value=&quot;com.tyron.o2o.entity&quot; /&gt;</span><br><span class="line">	&lt;!-- 扫描sql配置文件:mapper需要的xml文件 --&gt;</span><br><span class="line">	&lt;property name=&quot;mapperLocations&quot; value=&quot;classpath:mapper/*.xml&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 4.配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 --&gt;</span><br><span class="line">&lt;bean class=&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&gt;</span><br><span class="line">	&lt;!-- 注入sqlSessionFactory --&gt;</span><br><span class="line">	&lt;property name=&quot;sqlSessionFactoryBeanName&quot; value=&quot;sqlSessionFactory&quot; /&gt;</span><br><span class="line">	&lt;!-- 给出需要扫描Dao接口包 --&gt;</span><br><span class="line">	&lt;property name=&quot;basePackage&quot; value=&quot;com.tyron.o2o.dao&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="mybatis-config-xml"><a href="#mybatis-config-xml" class="headerlink" title="mybatis-config.xml"></a><strong>mybatis-config.xml</strong></h3><p>配置mybatis的属性：1）驼峰命名转换；2）列别名替换列名；3）自增主键<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;settings&gt;</span><br><span class="line">	&lt;!-- 开启驼峰命名转换:Table&#123;create_time&#125; -&gt; Entity&#123;createTime&#125; --&gt;</span><br><span class="line">	&lt;setting name=&quot;mapUnderscoreToCamelCase&quot; value=&quot;true&quot; /&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 使用列别名替换列名 默认:true --&gt;</span><br><span class="line">	&lt;setting name=&quot;useColumnLabel&quot; value=&quot;true&quot; /&gt;</span><br><span class="line"></span><br><span class="line">	&lt;!-- 使用jdbc的getGeneratedKeys获取数据库自增主键值 --&gt;</span><br><span class="line">	&lt;setting name=&quot;useGeneratedKeys&quot; value=&quot;true&quot; /&gt;</span><br><span class="line">&lt;/settings&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="jdbc-properties"><a href="#jdbc-properties" class="headerlink" title="jdbc.properties"></a><strong>jdbc.properties</strong></h3><p>设置数据库相关参数，并将username和password设置为密文；</p>
+<h3 id="BaseTest-java"><a href="#BaseTest-java" class="headerlink" title="BaseTest.java"></a><strong>BaseTest.java</strong></h3><p>测试类的基类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 配置spring和junit整合，junit启动时加载springIOC容器 spring-test,junit</span><br><span class="line"> */</span><br><span class="line">@RunWith(SpringJUnit4ClassRunner.class)</span><br><span class="line">@ContextConfiguration(&#123; &quot;classpath:spring/spring-dao.xml&quot;,</span><br><span class="line">		&quot;classpath:spring/spring-service.xml&quot; &#125;)</span><br><span class="line">public class BaseTest &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>附上免费网盘地址：</p>
+<blockquote>
+<p>链接: <a href="https://pan.baidu.com/s/1htuUYqw" target="_blank" rel="noopener">https://pan.baidu.com/s/1htuUYqw</a> 密码: j1am<br>如失效，可关注我的公众号，回复“<strong>校园商铺</strong>”获取最新链接</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="tyron chen wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客，给我留言！</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    tyron chen
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://tyronblog.com/2018/03/24/ssm2boot1/" title="SSM到Spring Boot从零开发校园商铺平台---1、环境搭建及测试">http://tyronblog.com/2018/03/24/ssm2boot1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ssm/" rel="tag"># ssm</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/04/SpringMVCAnnotation/" rel="next" title="Spring MVC 注解总结">
+                <i class="fa fa-chevron-left"></i> Spring MVC 注解总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/25/ssm2boot2/" rel="prev" title="SSM到Spring Boot从零开发校园商铺平台---2、Logback配置与使用">
+                SSM到Spring Boot从零开发校园商铺平台---2、Logback配置与使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="tyron chen" />
+            
+              <p class="site-author-name" itemprop="name">tyron chen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tyronczt" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/518532678" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://blog.csdn.net/tian330726" target="_blank" title="csdn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>csdn</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/9b9c02fe6218" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.gitnavi.com/u/tyronchen/" title="导航1" target="_blank">导航1</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://code.giffox.com/" title="导航2" target="_blank">导航2</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目介绍"><span class="nav-number">1.</span> <span class="nav-text">项目介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目结构及配置文件说明"><span class="nav-number">2.</span> <span class="nav-text">项目结构及配置文件说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pom-xml"><span class="nav-number">2.1.</span> <span class="nav-text">pom.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web-xml"><span class="nav-number">2.2.</span> <span class="nav-text">web.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring-web-xml"><span class="nav-number">2.3.</span> <span class="nav-text">spring-web.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring-service-xml"><span class="nav-number">2.4.</span> <span class="nav-text">spring-service.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spring-dao-xml"><span class="nav-number">2.5.</span> <span class="nav-text">spring-dao.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis-config-xml"><span class="nav-number">2.6.</span> <span class="nav-text">mybatis-config.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jdbc-properties"><span class="nav-number">2.7.</span> <span class="nav-text">jdbc.properties</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BaseTest-java"><span class="nav-number">2.8.</span> <span class="nav-text">BaseTest.java</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">浙ICP备17011091号</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 阅读数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65098042";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Douban";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 1499be021c74f464b4fde4d7933336754c233c96ee23815e875b0fe02bd4ccbf,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

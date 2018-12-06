@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="hexo," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="tyron blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="豆瓣插件集成     插入网易云音乐  插入图片的方式  支持https  hexo-admin的集成  markdown的使用  网站SEO">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo使用进阶篇（一）">
+<meta property="og:url" content="http://tyronblog.com/2018/02/01/hexoAdvanced1/index.html">
+<meta property="og:site_name" content="tyron blog">
+<meta property="og:description" content="豆瓣插件集成     插入网易云音乐  插入图片的方式  支持https  hexo-admin的集成  markdown的使用  网站SEO">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p3ej4y1q6.bkt.clouddn.com/%E4%B8%83%E7%89%9B%E4%BA%91.png">
+<meta property="og:image" content="https://tyron-blog.oss-cn-beijing.aliyuncs.com/hexo/aliyun-oss.png?Expires=1580482821&OSSAccessKeyId=LTAIxIpnFmXmeVUr&Signature=4Mg/i4mQPFQXe4qQfxxd0oWZ7xY=">
+<meta property="og:image" content="http://p3ej4y1q6.bkt.clouddn.com/%E7%AB%99%E9%95%BF%E5%B7%A5%E5%85%B7.png">
+<meta property="og:updated_time" content="2018-02-01T11:37:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo使用进阶篇（一）">
+<meta name="twitter:description" content="豆瓣插件集成     插入网易云音乐  插入图片的方式  支持https  hexo-admin的集成  markdown的使用  网站SEO">
+<meta name="twitter:image" content="http://p3ej4y1q6.bkt.clouddn.com/%E4%B8%83%E7%89%9B%E4%BA%91.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://tyronblog.com/2018/02/01/hexoAdvanced1/"/>
+
+
+
+
+
+  <title>Hexo使用进阶篇（一） | tyron blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?90d52ab64b06d8ab5a4ec58d86be4035";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tyron blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">人若无名，专心练剑。<br />剑成之后，自然诸事皆顺。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-我的阅读">
+          <a href="/books/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            我的阅读
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-我的电影">
+          <a href="/movies/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-file-video-o"></i> <br />
+            
+            我的电影
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tyronblog.com/2018/02/01/hexoAdvanced1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tyron chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tyron blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Hexo使用进阶篇（一）</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-01T19:03:14+08:00">
+                2018-02-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/兴趣/" itemprop="url" rel="index">
+                    <span itemprop="name">兴趣</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-thermometer-full"> 热度</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <ul>
+<li style="list-style: none"><input type="checkbox" checked> 豆瓣插件集成   </li>
+<li style="list-style: none"><input type="checkbox" checked> 插入网易云音乐</li>
+<li style="list-style: none"><input type="checkbox" checked> 插入图片的方式</li>
+<li style="list-style: none"><input type="checkbox" checked> 支持https</li>
+<li style="list-style: none"><input type="checkbox"> hexo-admin的集成</li>
+<li style="list-style: none"><input type="checkbox"> markdown的使用</li>
+<li style="list-style: none"><input type="checkbox"> 网站SEO<a id="more"></a>
+</li>
+</ul>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="370" height="86" src="//music.163.com/outchain/player?type=2&id=532103415&auto=0&height=66"></iframe>
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>或许是源于兴趣，在有空的时候便会想着去装扮装扮自己的博客。本文将一些有趣好用的插件和hexo使用心得做记录与大家分享。关于基础入门篇可以参考<a href="https://tyronblog.com/2018/01/18/first-article/">hexo入门篇</a>，希望对大家有帮助。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="豆瓣插件集成"><a href="#豆瓣插件集成" class="headerlink" title="豆瓣插件集成"></a>豆瓣插件集成</h3><p>这是我使用到现在最喜欢的一个插件，封装了豆瓣api，获取个人豆瓣读书、电影、游戏中的记录。<br>使用很简单，可参考<a href="https://github.com/mythsman/hexo-douban" target="_blank" rel="noopener">hexo-douban</a>。<br>该插件是一位在校生根据前人经验开发，佩服之至，有兴趣的话可看<a href="https://blog.mythsman.com/2017/06/17/1/" target="_blank" rel="noopener">hexo-douban插件的开发过程</a>。</p>
+<h3 id="插入网易云音乐"><a href="#插入网易云音乐" class="headerlink" title="插入网易云音乐"></a>插入网易云音乐</h3><blockquote>
+<p>个人比较习惯使用网易云音乐，用上手的了很难改变。另外在看文章的时候听一首好听的音乐，岂不美哉！</p>
+</blockquote>
+<p>具体使用方式：<br>①网页打开<a href="http://music.163.com/" title="网易云音乐" target="_blank" rel="noopener">网易云音乐</a>，搜索你想要的歌曲；<br>②在音乐播放页面中，在音乐头像下方有 <code>生成外链播放器</code>  的按钮；（有的音乐会提示“由于版权保护，无法生成外链。”，那就很可惜没办法使用网易云音乐的外链了，当然不止可以使用网易云音乐的外链，也可以使用其他的，会在后面的文章中讲解O(∩_∩)O）<br>③选择使用iframe插件，插入HTML代码，即可播放。</p>
+<h3 id="插入图片的方式"><a href="#插入图片的方式" class="headerlink" title="插入图片的方式"></a>插入图片的方式</h3><blockquote>
+<p>使用hexo中麻烦的一点就是插入图片（主要是非人民币玩家而言），需要先上传到存储，拿到地址后再插入Markdown文档中。</p>
+</blockquote>
+<p>我现在的插入图片方案：</p>
+<h5 id="本地备份"><a href="#本地备份" class="headerlink" title="本地备份"></a>本地备份</h5><p>在自己电脑上将上传的图片放在一个文件夹中（留作以后网站迁移用）；</p>
+<h5 id="七牛云对象存储"><a href="#七牛云对象存储" class="headerlink" title="七牛云对象存储"></a>七牛云对象存储</h5><p>使用方便，申请稍麻烦点。有优点也有缺点，优点是永久免费，缺点是空间只有10G，下图由七牛云存储上传：<br><img src="http://p3ej4y1q6.bkt.clouddn.com/%E4%B8%83%E7%89%9B%E4%BA%91.png" alt="七牛云对象存储"></p>
+<h5 id="阿里云对象存储"><a href="#阿里云对象存储" class="headerlink" title="阿里云对象存储"></a>阿里云对象存储</h5><p>使用方式和七牛云对象存储差不多，同样有优点和缺点，优点是使用空间有40G，缺点是使用时间为2年，下图由阿里云对象存储上传：<img src="https://tyron-blog.oss-cn-beijing.aliyuncs.com/hexo/aliyun-oss.png?Expires=1580482821&amp;OSSAccessKeyId=LTAIxIpnFmXmeVUr&amp;Signature=4Mg/i4mQPFQXe4qQfxxd0oWZ7xY=" alt="阿里云对象存储"><br>暂时方案是将图片放在七牛云上，10G用用已经差不多了，并本地备份。</p>
+<h3 id="网站支持https"><a href="#网站支持https" class="headerlink" title="网站支持https"></a>网站支持https</h3><blockquote>
+<p>改用https虽然会降低访问速度，但是基于长久运营和防止运营商网络劫持，避免被人强行插入广告的考虑，决定在建站初期将站点改成https。</p>
+</blockquote>
+<h5 id="申请证书"><a href="#申请证书" class="headerlink" title="申请证书"></a>申请证书</h5><p>在七牛云和阿里云都可以申请到免费的有效期一年的证书，我申请的是阿里云的免费证书；</p>
+<h5 id="修改Nginx配置"><a href="#修改Nginx配置" class="headerlink" title="修改Nginx配置"></a>修改Nginx配置</h5><p>将证书上传到服务器，修改Nginx的配置文件，别忘了服务器的安全组中增加443端口。<br>具体操作可参考：<a href="https://ninghao.net/blog/4449" target="_blank" rel="noopener">用阿里云的免费 SSL 证书让网站从 HTTP 换成 HTTPS</a></p>
+<h3 id="hexo-admin的集成"><a href="#hexo-admin的集成" class="headerlink" title="hexo-admin的集成"></a>hexo-admin的集成</h3><p>待完成项，方便后台管理，参考文档：<a href="https://github.com/jaredly/hexo-admin" target="_blank" rel="noopener">https://github.com/jaredly/hexo-admin</a></p>
+<h3 id="markdown的使用"><a href="#markdown的使用" class="headerlink" title="markdown的使用"></a>markdown的使用</h3><blockquote>
+<p>一直在学习中，经常使用后你也会爱上它！</p>
+</blockquote>
+<p>推荐文档：</p>
+<ul>
+<li><a href="https://github.com/younghz/Markdown" target="_blank" rel="noopener">https://github.com/younghz/Markdown</a></li>
+<li><a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="noopener">https://www.zybuluo.com/mdeditor</a></li>
+</ul>
+<h3 id="网站SEO"><a href="#网站SEO" class="headerlink" title="网站SEO"></a>网站SEO</h3><blockquote>
+<p>网站主要还要以高质量的内容为主，做SEO只是为了让更多的人发现正在努力中的你我。<br>量变会发生质变，只是时间的问题！<br>话题太大，后面会写专门的文章来讲述我的seo之路。</p>
+</blockquote>
+<p>做seo当然少不了站长工具，先附一张站长工具截图：<br><img src="http://p3ej4y1q6.bkt.clouddn.com/%E7%AB%99%E9%95%BF%E5%B7%A5%E5%85%B7.png" alt="站长工具"></p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>这是hexo进阶篇的第一篇，后面会继续更新，敬请期待！<br>适合自己的才是最好的，多去实践，我们会发现更多更美更广的天空。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="tyron chen wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客，给我留言！</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    tyron chen
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://tyronblog.com/2018/02/01/hexoAdvanced1/" title="Hexo使用进阶篇（一）">http://tyronblog.com/2018/02/01/hexoAdvanced1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/28/writeAndThinking/" rel="next" title="关于看书和写作的一点思考">
+                <i class="fa fa-chevron-left"></i> 关于看书和写作的一点思考
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/03/climb-mountains/" rel="prev" title="今天又去爬山了">
+                今天又去爬山了 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="tyron chen" />
+            
+              <p class="site-author-name" itemprop="name">tyron chen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tyronczt" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/518532678" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://blog.csdn.net/tian330726" target="_blank" title="csdn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>csdn</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/9b9c02fe6218" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.gitnavi.com/u/tyronchen/" title="导航1" target="_blank">导航1</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://code.giffox.com/" title="导航2" target="_blank">导航2</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#豆瓣插件集成"><span class="nav-number">2.1.</span> <span class="nav-text">豆瓣插件集成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入网易云音乐"><span class="nav-number">2.2.</span> <span class="nav-text">插入网易云音乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入图片的方式"><span class="nav-number">2.3.</span> <span class="nav-text">插入图片的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#本地备份"><span class="nav-number">2.3.0.1.</span> <span class="nav-text">本地备份</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#七牛云对象存储"><span class="nav-number">2.3.0.2.</span> <span class="nav-text">七牛云对象存储</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#阿里云对象存储"><span class="nav-number">2.3.0.3.</span> <span class="nav-text">阿里云对象存储</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站支持https"><span class="nav-number">2.4.</span> <span class="nav-text">网站支持https</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#申请证书"><span class="nav-number">2.4.0.1.</span> <span class="nav-text">申请证书</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改Nginx配置"><span class="nav-number">2.4.0.2.</span> <span class="nav-text">修改Nginx配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-admin的集成"><span class="nav-number">2.5.</span> <span class="nav-text">hexo-admin的集成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#markdown的使用"><span class="nav-number">2.6.</span> <span class="nav-text">markdown的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网站SEO"><span class="nav-number">2.7.</span> <span class="nav-text">网站SEO</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写在最后"><span class="nav-number">3.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">浙ICP备17011091号</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 阅读数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65098042";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Douban";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 1499be021c74f464b4fde4d7933336754c233c96ee23815e875b0fe02bd4ccbf,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

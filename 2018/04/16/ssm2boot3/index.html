@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ssm," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="tyron blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="继续更新校园商铺项目，由于店铺注册功能实现逻辑较长，分成两个部分讲述。附上github地址：https://github.com/tyronczt/imooc-o2o">
+<meta name="keywords" content="ssm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSM到Spring Boot从零开发校园商铺平台---3、店铺注册功能模块（一）">
+<meta property="og:url" content="http://tyronblog.com/2018/04/16/ssm2boot3/index.html">
+<meta property="og:site_name" content="tyron blog">
+<meta property="og:description" content="继续更新校园商铺项目，由于店铺注册功能实现逻辑较长，分成两个部分讲述。附上github地址：https://github.com/tyronczt/imooc-o2o">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://p3ej4y1q6.bkt.clouddn.com/0415%20%282%29.png">
+<meta property="og:image" content="http://p3ej4y1q6.bkt.clouddn.com/0415%20%281%29.png">
+<meta property="og:image" content="http://p3ej4y1q6.bkt.clouddn.com/0415%20%280%29.jpg">
+<meta property="og:image" content="http://p3ej4y1q6.bkt.clouddn.com/0415%20%283%29.png">
+<meta property="og:image" content="http://p3ej4y1q6.bkt.clouddn.com/0415%20%284%29.png">
+<meta property="og:updated_time" content="2018-07-01T15:14:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SSM到Spring Boot从零开发校园商铺平台---3、店铺注册功能模块（一）">
+<meta name="twitter:description" content="继续更新校园商铺项目，由于店铺注册功能实现逻辑较长，分成两个部分讲述。附上github地址：https://github.com/tyronczt/imooc-o2o">
+<meta name="twitter:image" content="http://p3ej4y1q6.bkt.clouddn.com/0415%20%282%29.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://tyronblog.com/2018/04/16/ssm2boot3/"/>
+
+
+
+
+
+  <title>SSM到Spring Boot从零开发校园商铺平台---3、店铺注册功能模块（一） | tyron blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?90d52ab64b06d8ab5a4ec58d86be4035";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tyron blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">人若无名，专心练剑。<br />剑成之后，自然诸事皆顺。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-我的阅读">
+          <a href="/books/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            我的阅读
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-我的电影">
+          <a href="/movies/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-file-video-o"></i> <br />
+            
+            我的电影
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tyronblog.com/2018/04/16/ssm2boot3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tyron chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tyron blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">SSM到Spring Boot从零开发校园商铺平台---3、店铺注册功能模块（一）</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T21:36:49+08:00">
+                2018-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-thermometer-full"> 热度</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>继续更新校园商铺项目，由于店铺注册功能实现逻辑较长，分成两个部分讲述。<br>附上github地址：<a href="https://github.com/tyronczt/imooc-o2o" target="_blank" rel="noopener">https://github.com/tyronczt/imooc-o2o</a><br><a id="more"></a></p>
+<h4 id="先上效果图："><a href="#先上效果图：" class="headerlink" title="先上效果图："></a>先上效果图：</h4><ol>
+<li>前端页面<br><img src="http://p3ej4y1q6.bkt.clouddn.com/0415%20%282%29.png" alt="前端页面"></li>
+<li>店铺service测试<br><img src="http://p3ej4y1q6.bkt.clouddn.com/0415%20%281%29.png" alt="店铺service测试"></li>
+<li>水印图片<br><img src="http://p3ej4y1q6.bkt.clouddn.com/0415%20%280%29.jpg" alt="水印图片"></li>
+<li>店铺新增功能测试<br><img src="http://p3ej4y1q6.bkt.clouddn.com/0415%20%283%29.png" alt="店铺新增功能测试"></li>
+<li>店铺修改功能测试<br><img src="http://p3ej4y1q6.bkt.clouddn.com/0415%20%284%29.png" alt="店铺更新功能测试"></li>
+</ol>
+<h4 id="具体代码逻辑视频中讲述很详细，我就不赘述了。此文主要讲述重要知识点，具体的代码实现可查看我的github地址。"><a href="#具体代码逻辑视频中讲述很详细，我就不赘述了。此文主要讲述重要知识点，具体的代码实现可查看我的github地址。" class="headerlink" title="具体代码逻辑视频中讲述很详细，我就不赘述了。此文主要讲述重要知识点，具体的代码实现可查看我的github地址。"></a>具体代码逻辑视频中讲述很详细，我就不赘述了。此文主要讲述重要知识点，具体的代码实现可查看我的<a href="https://github.com/tyronczt/imooc-o2o" target="_blank" rel="noopener">github地址</a>。</h4><h5 id="一、mybatis配置文件中添加自增主键"><a href="#一、mybatis配置文件中添加自增主键" class="headerlink" title="一、mybatis配置文件中添加自增主键"></a>一、mybatis配置文件中添加自增主键</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mybatis-config.xml文件中</span><br><span class="line">&lt;setting name=&quot;useGeneratedKeys&quot; value=&quot;true&quot; /&gt;</span><br><span class="line">shopDao.xml文件中</span><br><span class="line">useGeneratedKeys=&quot;true&quot; keyColumn=&quot;shop_id&quot; keyProperty=&quot;shopId&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="二、dto层开发"><a href="#二、dto层开发" class="headerlink" title="二、dto层开发"></a>二、dto层开发</h5><p>dto层用于记录返回结果状态信息，详情可见<a href="https://github.com/tyronczt/imooc-o2o/blob/master/o2o/src/main/java/com/tyron/o2o/dto/ShopExecution.java" target="_blank" rel="noopener">ShopExecution.java</a></p>
+<h5 id="三、service层之事务控制【重要】"><a href="#三、service层之事务控制【重要】" class="headerlink" title="三、service层之事务控制【重要】"></a>三、service层之事务控制【重要】</h5><p>店铺注册的逻辑中分为四步：①新增店铺信息；②返回店铺ID；③存储图片信息；④存储数据库<br>这是粗略的四个步骤，如果中间出错一步，整个过程将会回滚。注意：<strong>Spring事务管理中只对运行期异常（RunTimeException）进行事务回滚。</strong><br>思考一：代码中将RunTimeException进行封装，业务将更加清晰；<br>思考二：存储图片时，如未上传图片，应添加默认图片，逻辑更加合理。</p>
+<h5 id="四、使用thumbnailator处理图片，并封装工具类及测试"><a href="#四、使用thumbnailator处理图片，并封装工具类及测试" class="headerlink" title="四、使用thumbnailator处理图片，并封装工具类及测试"></a>四、使用thumbnailator处理图片，并封装工具类及测试</h5><p>官方案例说明：<a href="https://github.com/coobird/thumbnailator/wiki/Examples" target="_blank" rel="noopener">coobird/thumbnailator</a><br>具体代码实现：</p>
+<ul>
+<li>测试类：<a href="https://github.com/tyronczt/imooc-o2o/blob/master/o2o/src/test/java/com/tyron/o2o/service/ShopServiceTest.java" target="_blank" rel="noopener">ShopServiceTest.java</a> - - -主要方法是：path2MultipartFile；</li>
+<li>工具类：<a href="https://github.com/tyronczt/imooc-o2o/blob/master/o2o/src/main/java/com/tyron/o2o/util/ImageUtil.java" target="_blank" rel="noopener">ImageUtil.java</a>、<a href="https://github.com/tyronczt/imooc-o2o/blob/master/o2o/src/main/java/com/tyron/o2o/util/PathUtil.java" target="_blank" rel="noopener">PathUtil.java</a></li>
+</ul>
+<h5 id="五、使用SUI-Mobile编写前端代码"><a href="#五、使用SUI-Mobile编写前端代码" class="headerlink" title="五、使用SUI Mobile编写前端代码"></a>五、使用SUI Mobile编写前端代码</h5><p>SUI Mobile轻量，小巧且精美，能方便迅速搭建响应式前端页面，如效果图[1]所示。<br>前端功能逻辑实现中，将会在此系列文章第四篇中讲解。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="tyron chen wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客，给我留言！</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    tyron chen
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://tyronblog.com/2018/04/16/ssm2boot3/" title="SSM到Spring Boot从零开发校园商铺平台---3、店铺注册功能模块（一）">http://tyronblog.com/2018/04/16/ssm2boot3/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ssm/" rel="tag"># ssm</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/02/hbjt2zgy/" rel="next" title="Bye Hbjt，hi Zgy！">
+                <i class="fa fa-chevron-left"></i> Bye Hbjt，hi Zgy！
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/01/ssm2boot4/" rel="prev" title="SSM到Spring Boot从零开发校园商铺平台---4、店铺注册功能模块（二）">
+                SSM到Spring Boot从零开发校园商铺平台---4、店铺注册功能模块（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="tyron chen" />
+            
+              <p class="site-author-name" itemprop="name">tyron chen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tyronczt" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/518532678" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://blog.csdn.net/tian330726" target="_blank" title="csdn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>csdn</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/9b9c02fe6218" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.gitnavi.com/u/tyronchen/" title="导航1" target="_blank">导航1</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://code.giffox.com/" title="导航2" target="_blank">导航2</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#先上效果图："><span class="nav-number">1.</span> <span class="nav-text">先上效果图：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#具体代码逻辑视频中讲述很详细，我就不赘述了。此文主要讲述重要知识点，具体的代码实现可查看我的github地址。"><span class="nav-number">2.</span> <span class="nav-text">具体代码逻辑视频中讲述很详细，我就不赘述了。此文主要讲述重要知识点，具体的代码实现可查看我的github地址。</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、mybatis配置文件中添加自增主键"><span class="nav-number">2.1.</span> <span class="nav-text">一、mybatis配置文件中添加自增主键</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、dto层开发"><span class="nav-number">2.2.</span> <span class="nav-text">二、dto层开发</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三、service层之事务控制【重要】"><span class="nav-number">2.3.</span> <span class="nav-text">三、service层之事务控制【重要】</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#四、使用thumbnailator处理图片，并封装工具类及测试"><span class="nav-number">2.4.</span> <span class="nav-text">四、使用thumbnailator处理图片，并封装工具类及测试</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#五、使用SUI-Mobile编写前端代码"><span class="nav-number">2.5.</span> <span class="nav-text">五、使用SUI Mobile编写前端代码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">浙ICP备17011091号</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 阅读数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65098042";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Douban";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 1499be021c74f464b4fde4d7933336754c233c96ee23815e875b0fe02bd4ccbf,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

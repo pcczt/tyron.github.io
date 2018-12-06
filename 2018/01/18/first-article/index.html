@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="hexo," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="tyron blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="博客终于有了最初的雏形，兴奋之情难以言表。搭建博客是我很早之前的一个小目标，在通过自己努力后终于迈开了小小的一步，兴奋之余便要着手准备把此博客好好运营下去。">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo+github 终于有了自己的博客！">
+<meta property="og:url" content="http://tyronblog.com/2018/01/18/first-article/index.html">
+<meta property="og:site_name" content="tyron blog">
+<meta property="og:description" content="博客终于有了最初的雏形，兴奋之情难以言表。搭建博客是我很早之前的一个小目标，在通过自己努力后终于迈开了小小的一步，兴奋之余便要着手准备把此博客好好运营下去。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://tyron-blog.oss-cn-beijing.aliyuncs.com/hexo/%E5%9F%9F%E5%90%8D%E5%A4%87%E6%A1%88.png?Expires=1579578985&OSSAccessKeyId=LTAIxIpnFmXmeVUr&Signature=eO1AL5y7UR5t3FEqsBqIUDYEZ/g=">
+<meta property="og:updated_time" content="2018-02-03T15:09:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo+github 终于有了自己的博客！">
+<meta name="twitter:description" content="博客终于有了最初的雏形，兴奋之情难以言表。搭建博客是我很早之前的一个小目标，在通过自己努力后终于迈开了小小的一步，兴奋之余便要着手准备把此博客好好运营下去。">
+<meta name="twitter:image" content="https://tyron-blog.oss-cn-beijing.aliyuncs.com/hexo/%E5%9F%9F%E5%90%8D%E5%A4%87%E6%A1%88.png?Expires=1579578985&OSSAccessKeyId=LTAIxIpnFmXmeVUr&Signature=eO1AL5y7UR5t3FEqsBqIUDYEZ/g=">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://tyronblog.com/2018/01/18/first-article/"/>
+
+
+
+
+
+  <title>Hexo+github 终于有了自己的博客！ | tyron blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?90d52ab64b06d8ab5a4ec58d86be4035";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">tyron blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">人若无名，专心练剑。<br />剑成之后，自然诸事皆顺。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-我的阅读">
+          <a href="/books/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            我的阅读
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-我的电影">
+          <a href="/movies/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-file-video-o"></i> <br />
+            
+            我的电影
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tyronblog.com/2018/01/18/first-article/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tyron chen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="tyron blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Hexo+github 终于有了自己的博客！</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T13:42:20+08:00">
+                2018-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/兴趣/" itemprop="url" rel="index">
+                    <span itemprop="name">兴趣</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-thermometer-full"> 热度</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>℃
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>博客终于有了最初的雏形，兴奋之情难以言表。<br>搭建博客是我很早之前的一个小目标，在通过自己努力后终于迈开了小小的一步，兴奋之余便要着手准备把此博客好好运营下去。<br><a id="more"></a></p>
+ <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="370" height="86" src="//music.163.com/outchain/player?type=2&id=27785330&auto=0&height=66"></iframe>
+
+<h2 id="为什么写博客？"><a href="#为什么写博客？" class="headerlink" title="为什么写博客？"></a>为什么写博客？</h2><blockquote>
+<p><strong>摘自–刘未鹏–《暗时间》</strong><br>写一个博客有很多的好处，却没有任何明显的坏处。更明确的说：用博客的形式来记录下你有价值的思考，会带来很多好处，却没有任何明显的坏处。Note：碎碎念不算思考，心情锁记不算思考，唠唠叨叨也不算思考，没话找话也不算思考，请以此类推。<br>写一个长期的价值博客最大的几点好处： </p>
+<ol>
+<li>能够交到很多志同道合的朋友。 书写是为了更好地思考。</li>
+<li>“教”是最好的“学”。如果一件事情你不能讲清楚，十有八九你还没有完全理解。 </li>
+<li>激励你去持续学习和思考。 </li>
+<li>学会持之以恒地做一件事情。</li>
+<li>一个长期的价值博客是一份很好的简历。</li>
+</ol>
+</blockquote>
+<p>很赞同以上的观点，我也在慢慢实践中，有兴趣也可以阅读他写的《暗时间》以及<a href="http://mindhacks.cn/" target="_blank" rel="noopener">博客</a>。学习优秀的人，我们也会变得优秀。</p>
+<h2 id="为什么选择用hexo？"><a href="#为什么选择用hexo？" class="headerlink" title="为什么选择用hexo？"></a>为什么选择用hexo？</h2><p>在技术选择上，第一个用到的便是WordPress，这个号称5秒钟建站的神器。给我的印象是上手简单，搭建快，扩展插件也很多，但是让我不能忍受的是加载速度慢，还有给人的感觉是很重，懒得去折腾和捣鼓，直接上手了hexo，界面简洁，加载速度快，支持Makedown，还支持部署到Github上。作为小白的我，既能学习Makedown的使用，也可以学着用用GitHub，好处多多。等熟悉使用了hexo后，下一阶段便是自己动手搭建个人博客，正所谓“自己动手，丰衣足食”，知其然，知其所以然，<a href="https://coding.imooc.com/class/125.html%20%E2%80%9CSpring%20Boot%E5%B8%A6%E5%89%8D%E5%90%8E%E7%AB%AF%20%E6%B8%90%E8%BF%9B%E5%BC%8F%E5%BC%80%E5%8F%91%E4%BC%81%E4%B8%9A%E7%BA%A7%E5%8D%9A%E5%AE%A2%E7%B3%BB%E7%BB%9F%E2%80%9D" target="_blank" rel="noopener">视频教程</a>已找好，只等自己把这个教程的一些准备课程学习到位了。</p>
+<h2 id="hexo的使用"><a href="#hexo的使用" class="headerlink" title="hexo的使用"></a>hexo的使用</h2><p>具体的使用操作，网上已经有很多教程，在这里给大家推荐几篇优秀文章供大家参考：</p>
+<ul>
+<li><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NexT 使用文档</a> — 开发者文档是一手资料，推荐指数5颗星</li>
+<li><a href="https://www.cnblogs.com/visugar/p/6821777.html" target="_blank" rel="noopener">hexo从零开始到搭建完整</a></li>
+<li><a href="http://blog.csdn.net/gdutxiaoxu/article/details/53576018" target="_blank" rel="noopener">手把手教你用Hexo+Github 搭建属于自己的博客</a></li>
+<li><a href="https://www.jianshu.com/p/15ae47eddc56" target="_blank" rel="noopener">小白独立搭建博客–Github Pages和Hexo简明教程</a></li>
+<li><a href="https://note.leodev.me/2016/09/01/Hexo-3-1-1-Staic-Blog-Build-Guide/" target="_blank" rel="noopener">Hexo 3.1.1 静态博客搭建指南</a></li>
+<li><a href="http://sobaigu.com/Hexo-git-to-vps.html" target="_blank" rel="noopener">Hexo博客Git-VPS部署完整记录</a></li>
+</ul>
+<h2 id="hexo安装中出现的问题"><a href="#hexo安装中出现的问题" class="headerlink" title="hexo安装中出现的问题"></a>hexo安装中出现的问题</h2><p> <strong>1. 出错描述</strong></p>
+<pre><code>node: relocation error: node: symbol SSL_set_cert_cb, version libssl.so.10 not defined in file libssl.so.10 with link time reference
+</code></pre><p>亲测有效：<a href="https://stackoverflow.com/questions/46473376/node-relocation-error-node-symbol-ssl-set-cert-cb-version-libssl-so-10-not-d" target="_blank" rel="noopener">解决方案</a> <br></p>
+<p> <strong>2. 万能方法</strong><br> ①使用搜索引擎，如百度，Google（<em>建议自己搭梯子</em>）等，很大一部分问题都能得到解决；<br> ②学会读异常，如在配置_config.yml文件时，经常会因为没有输入空格，导致网站无法显示，但是在hexo g是会提示第几行第几列出错的，要注意仔细阅读，并以此类推。<br> ③上面两种方法均无法解决问题，试了很多方法并不能奏效时，可是尝试向朋友或者相关博客中的作者提问，得到解决方案，做技术的在有人向他提问题时，除非是不动脑子的问题，一般都会回答你。如果大家在博客搭建中有相关问题，我们也可以一起讨论，文后有我公众号地址。</p>
+<h2 id="域名和服务器选择"><a href="#域名和服务器选择" class="headerlink" title="域名和服务器选择"></a>域名和服务器选择</h2><p> <strong>1. 域名选择</strong><br><a href="http://tyron.xyz/" target="_blank" rel="noopener">tyron.xyz</a>，是用来过渡的域名，是因为它之前备案过，所以现在暂时用这个域名，tyronblog.com域名再过十天就会备案通过，以后会一直用tyronblog.com。<br>上述的两个域名均是在万网购买的，国内域名都要备案，可参考<a href="https://www.cnblogs.com/chenwolong/p/beian.html" target="_blank" rel="noopener">网站/域名如何备案？</a>如果嫌麻烦可以国外买域名，如<a href="https://sg.godaddy.com/zh/" target="_blank" rel="noopener">GoDaddy</a>。<br><img src="https://tyron-blog.oss-cn-beijing.aliyuncs.com/hexo/%E5%9F%9F%E5%90%8D%E5%A4%87%E6%A1%88.png?Expires=1579578985&amp;OSSAccessKeyId=LTAIxIpnFmXmeVUr&amp;Signature=eO1AL5y7UR5t3FEqsBqIUDYEZ/g=" alt="tyron.xyz域名备案"><br>备案如同<strong>政审</strong>，大家自行体会吧。<br><br> <strong>2. 服务器选择</strong><br> 现在使用的是阿里云服务器，9元9使用半年，点击<a href="https://free.aliyun.com/?spm=5176.8499797.727319.5.04UbFW&amp;type=personal" target="_blank" rel="noopener">活动地址</a>，送了一大推服务，上面显示的图片就是用的oss对象存储，考虑到后期续费问题，也会把博客之前放到GitHub上。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><ul>
+<li>接下来也会更新一些hexo的进阶教程，主要是插件的使用，及博客的优化。</li>
+<li>技术路上，当你知道越多的时候，发现不懂的也会越来越多，只要用心去探索，会感受到技术生动的一面，而且也会遇到一起努力学技术的你们。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="tyron chen wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的微信公众号，订阅我的博客，给我留言！</div>
+</div>
+
+      </div>
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    tyron chen
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://tyronblog.com/2018/01/18/first-article/" title="Hexo+github 终于有了自己的博客！">http://tyronblog.com/2018/01/18/first-article/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/28/writeAndThinking/" rel="prev" title="关于看书和写作的一点思考">
+                关于看书和写作的一点思考 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="tyron chen" />
+            
+              <p class="site-author-name" itemprop="name">tyron chen</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tyronczt" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/518532678" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://blog.csdn.net/tian330726" target="_blank" title="csdn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>csdn</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/9b9c02fe6218" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.gitnavi.com/u/tyronchen/" title="导航1" target="_blank">导航1</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://code.giffox.com/" title="导航2" target="_blank">导航2</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么写博客？"><span class="nav-number">1.</span> <span class="nav-text">为什么写博客？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么选择用hexo？"><span class="nav-number">2.</span> <span class="nav-text">为什么选择用hexo？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo的使用"><span class="nav-number">3.</span> <span class="nav-text">hexo的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo安装中出现的问题"><span class="nav-number">4.</span> <span class="nav-text">hexo安装中出现的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域名和服务器选择"><span class="nav-number">5.</span> <span class="nav-text">域名和服务器选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">6.</span> <span class="nav-text">后记</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">浙ICP备17011091号</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"> 访客数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"> 阅读数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65098042";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Douban";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 1499be021c74f464b4fde4d7933336754c233c96ee23815e875b0fe02bd4ccbf,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
