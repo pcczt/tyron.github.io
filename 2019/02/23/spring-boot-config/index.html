@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="vpn," />
+  <meta name="keywords" content="springboot," />
 
 
 
@@ -88,35 +88,18 @@
 
 
 
-<meta name="description" content="转眼农历新年已过，还想着新春在家空了可以看看书，事实证明自己太天真，在家忙(lan)的书都没翻开。。。稍微空点了便写了此文，希望对大家有帮助。自己动手，丰衣足食。自己搭个免费的梯子，看看GFW外发生的事情。搭梯子分两步走，搭建不难，分分钟就可以搞定了。">
-<meta name="keywords" content="vpn">
+<meta name="description" content="讲解 Spring Boot 的配置文件">
+<meta name="keywords" content="springboot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用亚马逊云自己搭梯子">
-<meta property="og:url" content="http://tyronblog.com/2018/02/24/awsToVPN/index.html">
+<meta property="og:title" content="Spring Boot 配置">
+<meta property="og:url" content="http://tyronblog.com/2019/02/23/spring-boot-config/index.html">
 <meta property="og:site_name" content="tyron blog">
-<meta property="og:description" content="转眼农历新年已过，还想着新春在家空了可以看看书，事实证明自己太天真，在家忙(lan)的书都没翻开。。。稍微空点了便写了此文，希望对大家有帮助。自己动手，丰衣足食。自己搭个免费的梯子，看看GFW外发生的事情。搭梯子分两步走，搭建不难，分分钟就可以搞定了。">
+<meta property="og:description" content="讲解 Spring Boot 的配置文件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://img.tyronblog.com/aws-1.png">
-<meta property="og:image" content="http://img.tyronblog.com/aws-3.png">
-<meta property="og:image" content="http://img.tyronblog.com/3.png">
-<meta property="og:image" content="http://img.tyronblog.com/5.png">
-<meta property="og:image" content="http://img.tyronblog.com/6.png">
-<meta property="og:image" content="http://img.tyronblog.com/aws-4.png">
-<meta property="og:image" content="http://img.tyronblog.com/aws-5.png">
-<meta property="og:image" content="http://img.tyronblog.com/aws-6.png">
-<meta property="og:image" content="http://img.tyronblog.com/aws-8.png">
-<meta property="og:image" content="http://img.tyronblog.com/aws-7.png">
-<meta property="og:image" content="http://img.tyronblog.com/aws-9.png">
-<meta property="og:image" content="http://img.tyronblog.com/aws-12.png">
-<meta property="og:image" content="http://img.tyronblog.com/aws-10.png">
-<meta property="og:image" content="http://img.tyronblog.com/aws-11.png">
-<meta property="og:image" content="http://img.tyronblog.com/aws-13.jpg">
-<meta property="og:image" content="http://img.tyronblog.com/aws-14.jpg">
-<meta property="og:updated_time" content="2019-02-19T11:10:14.000Z">
+<meta property="og:updated_time" content="2019-02-24T15:16:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用亚马逊云自己搭梯子">
-<meta name="twitter:description" content="转眼农历新年已过，还想着新春在家空了可以看看书，事实证明自己太天真，在家忙(lan)的书都没翻开。。。稍微空点了便写了此文，希望对大家有帮助。自己动手，丰衣足食。自己搭个免费的梯子，看看GFW外发生的事情。搭梯子分两步走，搭建不难，分分钟就可以搞定了。">
-<meta name="twitter:image" content="http://img.tyronblog.com/aws-1.png">
+<meta name="twitter:title" content="Spring Boot 配置">
+<meta name="twitter:description" content="讲解 Spring Boot 的配置文件">
 
 
 
@@ -146,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://tyronblog.com/2018/02/24/awsToVPN/"/>
+  <link rel="canonical" href="http://tyronblog.com/2019/02/23/spring-boot-config/"/>
 
 
 
 
 
-  <title>用亚马逊云自己搭梯子 | tyron blog</title>
+  <title>Spring Boot 配置 | tyron blog</title>
   
 
 
@@ -289,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tyronblog.com/2018/02/24/awsToVPN/">
+    <link itemprop="mainEntityOfPage" href="http://tyronblog.com/2019/02/23/spring-boot-config/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tyron chen">
@@ -306,7 +289,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">用亚马逊云自己搭梯子</h2>
+          <h2 class="post-title" itemprop="name headline">Spring Boot 配置</h2>
         
 
         <div class="post-meta">
@@ -318,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-24T12:45:24+08:00">
-                2018-02-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-23T23:06:31+08:00">
+                2019-02-23
               </time>
             
 
@@ -383,32 +366,57 @@
       
 
       
-        <p>转眼农历新年已过，还想着新春在家空了可以看看书，事实证明自己太天真，在家忙(lan)的书都没翻开。。。<br>稍微空点了便写了此文，希望对大家有帮助。<br>自己动手，丰衣足食。自己搭个<code>免费</code>的梯子，看看GFW外发生的事情。<br>搭梯子分两步走，搭建不难，分分钟就可以搞定了。<br><a id="more"></a></p>
-<h2 id="迈出第一步：注册亚马逊云账号，搭建服务器平台"><a href="#迈出第一步：注册亚马逊云账号，搭建服务器平台" class="headerlink" title="迈出第一步：注册亚马逊云账号，搭建服务器平台"></a>迈出第一步：注册亚马逊云账号，搭建服务器平台</h2><h3 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h3><blockquote>
-<p>必要条件：一张信用卡。信用卡是支付预授权和押金所用，在你流量没用超的情况下（每月免费15G），一年后会返还。</p>
-</blockquote>
-<p>AWS官网：<a href="https://amazonaws-china.com/cn/" target="_blank" rel="noopener">https://amazonaws-china.com/cn/</a><br>点击右上角<code>注册</code>，输入邮箱密码及用户名，点击下一步，如图：<br><img src="http://img.tyronblog.com/aws-1.png" alt="注册用户-1"><br>下一步，填写自己的信用卡号和姓名，如果没有的话，可以去万能的某宝买一个虚拟信用卡：<br><img src="http://img.tyronblog.com/aws-3.png" alt="注册用户-2"><br>然后会要验证手机号，接收验证码填写即可：<br><img src="http://img.tyronblog.com/3.png" alt="注册用户-3"></p>
-<h3 id="创建EC2实例"><a href="#创建EC2实例" class="headerlink" title="创建EC2实例"></a>创建EC2实例</h3><p>选择<code>免费</code>方案后，进入控制台，选择服务器所在区域<code>东京</code>,相对其他区域，东京延迟是最低的。<br><img src="http://img.tyronblog.com/5.png" alt="创建实例-1"><br>点击<code>启动实例</code>，然后下一步，建议选择Ubuntu的操作系统，创建<code>密钥对</code></p>
-<blockquote>
-<p>只有下载了密钥对才能启动实例，一定要保存好！</p>
-</blockquote>
-<p><img src="http://img.tyronblog.com/6.png" alt="创建实例-2"><br>点击<code>启动实例</code></p>
-<h3 id="PuTTY连接EC2实例"><a href="#PuTTY连接EC2实例" class="headerlink" title="PuTTY连接EC2实例"></a>PuTTY连接EC2实例</h3><p>到控制台主页，点击<code>连接</code><br><img src="http://img.tyronblog.com/aws-4.png" alt="连接实例-1"><br>点击<code>使用PuTTY连接</code>，按照文档操作，很详细！</p>
-<blockquote>
-<p>官方文档是一手资料，一定要看！<br>最好的资料不用，自己去查资料，饶了不少弯路，慎记！！！</p>
-</blockquote>
-<p><img src="http://img.tyronblog.com/aws-5.png" alt="连接实例-2"></p>
-<h2 id="踏出第二步：服务器安装Shadowsocks"><a href="#踏出第二步：服务器安装Shadowsocks" class="headerlink" title="踏出第二步：服务器安装Shadowsocks"></a>踏出第二步：服务器安装Shadowsocks</h2><p>站在巨人的肩膀上前行，可以让我们看得更远！<br>仰望<code>秋水逸冰</code>:<a href="https://teddysun.com/486.html" target="_blank" rel="noopener">Shadowsocks 一键安装脚本（四合一）</a></p>
-<blockquote>
-<p>自己也尝试了很长时间自己去搭建，但是会遇到各种莫名其妙的错误，也怪自己学艺不精，只能以崇拜的眼神用了这个好用的工具，学编程之路漫漫其修远兮，我要学的还有很多！</p>
-</blockquote>
-<p><strong>使用方法</strong><br>使用root用户登录，运行以下命令：</p>
-<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    wget --no-check-certificate -O shadowsocks-all.sh https:<span class="comment">//raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh</span></span><br><span class="line">    </span><br><span class="line"> chmod +x shadowsocks-all.sh</span><br><span class="line"></span><br><span class="line">./shadowsocks-all.sh <span class="number">2</span>&gt;&amp;<span class="number">1</span> | tee shadowsocks-all.log</span><br></pre></td></tr></table></figure>
-</code></pre><p>之前装的好好的，这次重新装了以后就一直出现这个错误（中间就登上一次，已经截图在上面）：<br><img src="http://img.tyronblog.com/aws-6.png" alt="shadowsocks安装-1"><br>花了大半天的时间，也没解决（可能是文件权限的问题），最后决定曲线救国，使用Internet Explorer连接实例，如果提示更新java版本，更新便是。<br><img src="http://img.tyronblog.com/aws-8.png" alt="shadowsocks安装-2"><br><img src="http://img.tyronblog.com/aws-7.png" alt="shadowsocks安装-3"></p>
-<p>安装成功^_^<br><img src="http://img.tyronblog.com/aws-9.png" alt="shadowsocks安装-4"></p>
-<p>设置安全组<br><img src="http://img.tyronblog.com/aws-12.png" alt="shadowsocks安装-5"></p>
-<h2 id="验证成果"><a href="#验证成果" class="headerlink" title="验证成果"></a>验证成果</h2><p>PC端（windows）下载Shadowsocks.exe <a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="noopener">https://github.com/shadowsocks/shadowsocks-windows/releases</a><br>更多可查看：<a href="https://github.com/shadowsocks" target="_blank" rel="noopener">https://github.com/shadowsocks</a><br><img src="http://img.tyronblog.com/aws-10.png" alt="成果展示-1"><br><img src="http://img.tyronblog.com/aws-11.png" alt="成果展示-2"></p>
-<p>iphone端：下载FirstWingy<br><img src="http://img.tyronblog.com/aws-13.jpg" alt="成果展示-3"><br><img src="http://img.tyronblog.com/aws-14.jpg" alt="成果展示-4"></p>
+        <p>讲解 Spring Boot 的配置文件<br><a id="more"></a></p>
+<h3 id="1、配置文件"><a href="#1、配置文件" class="headerlink" title="1、配置文件"></a>1、配置文件</h3><p>Spring Boot使用一个全局的配置文件</p>
+<ul>
+<li>application.properties</li>
+<li>application.yml</li>
+</ul>
+<p>配置文件放在<code>src/main/resources</code>目录或者类路径 /config 下</p>
+<p><strong>yml </strong>是 <strong>YAML</strong>（YAML Ain’t Markup Language）语言的文件，以数据为中<br>心，比 json、xml 等更适合做配置文件</p>
+<p><a href="http://www.yaml.org/" target="_blank" rel="noopener">http://www.yaml.org/</a> 参考语法规范</p>
+<p>全局配置文件的可以对一些默认配置值进行修改</p>
+<p>YAML ： 配置例子</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8081</span></span><br></pre></td></tr></table></figure>
+<p>XML ：配置例子</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">port</span>&gt;</span>8081<span class="tag">&lt;<span class="name">port</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2、YAML语法"><a href="#2、YAML语法" class="headerlink" title="2、YAML语法"></a>2、YAML语法</h3><h4 id="1、基本语法"><a href="#1、基本语法" class="headerlink" title="1、基本语法"></a>1、基本语法</h4><ul>
+<li>使用缩进表示层级关系</li>
+<li>缩进时不允许使用Tab键，只允许使用<strong>空格</strong></li>
+<li>缩进的空格数目不重要，只要相同层级的元素左侧对齐即可</li>
+<li>大小写敏感</li>
+</ul>
+<h4 id="2、YAML-支持的三种数据结构"><a href="#2、YAML-支持的三种数据结构" class="headerlink" title="2、YAML 支持的三种数据结构"></a>2、YAML 支持的三种数据结构</h4><ul>
+<li>字面量：单个的、不可再分的值</li>
+<li>对象：键值对的集合</li>
+<li>数组：一组按次序排列的值</li>
+</ul>
+<h5 id="2-1、字面量"><a href="#2-1、字面量" class="headerlink" title="2.1、字面量"></a>2.1、字面量</h5><ul>
+<li>数字、字符串、布尔、日期</li>
+<li>字符串<ul>
+<li>默认不使用引号</li>
+<li>可以使用单引号或者双引号，单引号会转义特殊字符，双引号不会转义</li>
+<li>字符串可以写成多行，从第二行开始，必须有一个单空格缩进，换行符会被转为空格。</li>
+</ul>
+</li>
+</ul>
+<p>name:   “zhangsan \n lisi”：输出；zhangsan 换行  lisi</p>
+<p>name:   ‘zhangsan \n lisi’：输出；zhangsan \n  lisi</p>
+<h5 id="2-2、对象（Map）"><a href="#2-2、对象（Map）" class="headerlink" title="2.2、对象（Map）"></a>2.2、对象（Map）</h5><ul>
+<li>对象的一组键值对，使用冒号分隔。如：username: admin</li>
+<li>冒号后面跟<strong>空格</strong>来分开键值</li>
+<li>{k: v}是行内写法</li>
+</ul>
+<p>行内写法：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">friends:</span> <span class="string">&#123;name:</span> <span class="string">xiaoming,age:</span> <span class="number">18</span><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-2、数组（List、Set）："><a href="#2-2、数组（List、Set）：" class="headerlink" title="2.2、数组（List、Set）："></a>2.2、数组（List、Set）：</h5><p>一组连词线（-）开头的行，构成一个数组，[]为行内写法</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pets:</span> <span class="string">[cat,dog,pig]</span></span><br></pre></td></tr></table></figure>
+<h4 id="3、配置文件值注入"><a href="#3、配置文件值注入" class="headerlink" title="3、配置文件值注入"></a>3、配置文件值注入</h4><p>注入类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * 将配置文件中配置的每一个属性的值，映射到这个组件中</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@ConfigurationProperties</span>：告诉SpringBoot将本类中的所有属性和配置文件中相关的配置进行绑定；</span></span><br><span class="line"><span class="comment"> *       prefix = "person"：配置文件中哪个下面的所有属性进行一一映射</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * 只有这个组件是容器中的组件，才能容器提供的<span class="doctag">@ConfigurationProperties</span>功能；</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"person"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Integer age;</span><br><span class="line">    <span class="keyword">private</span> Boolean boss;</span><br><span class="line">    <span class="keyword">private</span> Date birth;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, Object&gt; maps;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Object&gt; lists;</span><br><span class="line">    <span class="keyword">private</span> Animal animal;</span><br><span class="line">    </span><br><span class="line">    getter/setter</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>yaml配置文件：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">person:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">xiaoming</span></span><br><span class="line"><span class="attr">  age:</span> <span class="number">18</span></span><br><span class="line"><span class="attr">  boss:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  birth:</span> <span class="number">2010</span><span class="string">/01/01</span></span><br><span class="line"><span class="attr">  maps:</span></span><br><span class="line"><span class="attr">    hello:</span> <span class="string">world</span></span><br><span class="line"><span class="attr">    say:</span> <span class="string">hello</span></span><br><span class="line"><span class="attr">  lists:</span> <span class="string">[dog,cat,pig]</span></span><br><span class="line"><span class="attr">  animal:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">xiaohuang</span></span><br><span class="line"><span class="attr">    age:</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>打印：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person&#123;name=<span class="string">'xiaoming'</span>, age=<span class="number">18</span>, boss=<span class="keyword">true</span>, birth=Fri Jan <span class="number">01</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> CST <span class="number">2010</span>, maps=&#123;hello=world, say=hello&#125;, lists=[dog, cat, pig], animal=Animal&#123;name=<span class="string">'xiaohuang'</span>, age=<span class="number">3</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -437,7 +445,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://tyronblog.com/2018/02/24/awsToVPN/" title="用亚马逊云自己搭梯子">http://tyronblog.com/2018/02/24/awsToVPN/</a>
+    <a href="http://tyronblog.com/2019/02/23/spring-boot-config/" title="Spring Boot 配置">http://tyronblog.com/2019/02/23/spring-boot-config/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -452,7 +460,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vpn/" rel="tag"># vpn</a>
+            <a href="/tags/springboot/" rel="tag"># springboot</a>
           
         </div>
       
@@ -484,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/12/socialCredit/" rel="next" title="我眼中的社交信用">
-                <i class="fa fa-chevron-left"></i> 我眼中的社交信用
+              <a href="/2019/02/20/spring-boot-quick-start/" rel="next" title="Spring Boot 入门">
+                <i class="fa fa-chevron-left"></i> Spring Boot 入门
               </a>
             
           </div>
@@ -493,10 +501,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/04/SpringMVCAnnotation/" rel="prev" title="Spring MVC 注解总结">
-                Spring MVC 注解总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -685,7 +689,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#迈出第一步：注册亚马逊云账号，搭建服务器平台"><span class="nav-number">1.</span> <span class="nav-text">迈出第一步：注册亚马逊云账号，搭建服务器平台</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册账号"><span class="nav-number">1.1.</span> <span class="nav-text">注册账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建EC2实例"><span class="nav-number">1.2.</span> <span class="nav-text">创建EC2实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PuTTY连接EC2实例"><span class="nav-number">1.3.</span> <span class="nav-text">PuTTY连接EC2实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#踏出第二步：服务器安装Shadowsocks"><span class="nav-number">2.</span> <span class="nav-text">踏出第二步：服务器安装Shadowsocks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证成果"><span class="nav-number">3.</span> <span class="nav-text">验证成果</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、配置文件"><span class="nav-number">1.</span> <span class="nav-text">1、配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、YAML语法"><span class="nav-number">2.</span> <span class="nav-text">2、YAML语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、基本语法"><span class="nav-number">2.1.</span> <span class="nav-text">1、基本语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、YAML-支持的三种数据结构"><span class="nav-number">2.2.</span> <span class="nav-text">2、YAML 支持的三种数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1、字面量"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1、字面量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2、对象（Map）"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2、对象（Map）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2、数组（List、Set）："><span class="nav-number">2.2.3.</span> <span class="nav-text">2.2、数组（List、Set）：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、配置文件值注入"><span class="nav-number">2.3.</span> <span class="nav-text">3、配置文件值注入</span></a></li></ol></li></ol></div>
             
 
           </div>
